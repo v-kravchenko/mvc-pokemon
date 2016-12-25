@@ -1,0 +1,29 @@
+﻿@model Pokemon.Models.User
+
+@{
+    ViewBag.Title = "Новый заказ";
+}
+
+<h2>Новый заказ</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+
+        <label for="Name">Имя:</label>
+        @Html.TextBoxFor(t => t.Name, new { @class = "form-control" })
+
+        <label for="Email">Email:</label>
+        @Html.TextBoxFor(t => t.Email, new { @class = "form-control" })
+
+        <label for="Phone">Телефон:</label>
+        @Html.TextBoxFor(t => t.Phone, new { @class = "form-control" })
+
+        @Html.HiddenFor(t => t.Id)
+    </div>
+
+    <div class="form-group" role="group">
+        @Html.ActionLink("Back to list", "List", null, new { @class = "btn btn-default" })
+        <button class="btn btn-primary" type="submit">Заказать покемона</button>
+    </div>
+}
